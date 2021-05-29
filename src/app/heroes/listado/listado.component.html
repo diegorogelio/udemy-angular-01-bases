@@ -1,0 +1,29 @@
+<h1>Listado de héroes</h1>
+<ul>
+    <li *ngFor = "let heroe of heroes; let i = index">
+        {{i+1}}
+        {{heroe}}
+    </li>
+</ul>
+
+<button (click) = "borrarHeroe()">Borrar heroe</button>
+<button (click) = "reestablecerHeroe()">Reestablecer héroe</button>
+
+<br/> <br/>
+
+<h1>Papelera de reciclaje</h1>
+<div *ngIf="papelera.length > 0; else templatePapeleraVacia">
+    <span>{{papelera.length}} archivos en la papelera</span>
+</div>
+<ng-template #templatePapeleraVacia>
+    <span>La papelera se encuentra vacía</span>
+</ng-template>
+
+
+
+<div *ngIf="papelera.length > 0">
+    <button (click) = "vaciaPapelera()">Eliminar héroes de forma permanente</button>
+</div>
+<ul>
+   <li *ngFor = "let elementoBorrado of papelera"> {{elementoBorrado}}</li> 
+</ul>
